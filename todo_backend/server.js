@@ -19,7 +19,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://task-manager-a.onrender.com", // your frontend URL
+  origin: "https://task-manager-ap-6wb3.onrender.com", // your frontend URL
   credentials: true
 }));
 
