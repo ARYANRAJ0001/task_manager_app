@@ -1,0 +1,960 @@
+/* ========================================
+   MODERN CRYSTAL THEME - Transparent Premium
+   Animated Gradient | Glass Morphism | Ultra Modern
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;40..32,400;40..32,500;40..32,600;40..32,700;40..32,800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #0f0c29 0%,
+    #1a1a3e 25%,
+    #2d1b4e 50%,
+    #1a1a3e 75%,
+    #0f0c29 100%
+  );
+  background-attachment: fixed;
+  animation: crystalFlow 15s ease infinite;
+  background-size: 200% 200%;
+  overflow-x: hidden;
+}
+
+@keyframes crystalFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Animated Crystal Orbs Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 40%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      rgba(200, 200, 255, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 200, 200, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(200, 255, 200, 0.04) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+  animation: crystalOrbs 20s ease-in-out infinite;
+}
+
+@keyframes crystalOrbs {
+  0%,
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 0.6;
+  }
+  33% {
+    transform: scale(1.05) translateY(-20px);
+    opacity: 0.8;
+  }
+  66% {
+    transform: scale(0.95) translateY(15px);
+    opacity: 0.7;
+  }
+}
+
+/* Floating Crystal Particles */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 85% 45%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 50% 75%, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 30% 90%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 200px 200px, 180px 180px, 150px 150px, 220px 220px, 170px 170px;
+  background-position: 0 0, 50px 30px, 100px 80px, 20px 150px, 150px 50px;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: particleFloat 30s linear infinite;
+}
+
+@keyframes particleFloat {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* ========================================
+   TRANSPARENT NAVBAR - Crystal Glass
+   ======================================== */
+nav {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.8rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  font-size: clamp(0.8rem, 4vw, 0.95rem);
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  position: relative;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5), #fff);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::before {
+  width: 70%;
+}
+
+nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+nav button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1.6rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+  backdrop-filter: blur(10px);
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ========================================
+   HOME PAGE - Crystal Clear
+   ======================================== */
+.home-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section-premium {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.task-greeting {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  animation: crystalPulse 3s ease-in-out infinite;
+}
+
+@keyframes crystalPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    letter-spacing: 6px;
+  }
+  50% {
+    opacity: 1;
+    letter-spacing: 8px;
+  }
+}
+
+.premium-title {
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.premium-description {
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+.hero-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: clamp(0.8rem, 4vw, 1rem) clamp(1.5rem, 6vw, 3rem);
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.hero-button:hover::before {
+  left: 100%;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* How to Use Section */
+.how-to-use-section {
+  width: 100%;
+  margin: 2rem 0;
+  padding: clamp(1rem, 5vw, 2rem);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: clamp(24px, 6vw, 48px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.2rem, 6vw, 1.8rem);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.step-card h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.step-card p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Features Section */
+.features-section {
+  width: 100%;
+  margin: 2rem 0;
+  padding: clamp(1rem, 5vw, 2rem);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: clamp(24px, 6vw, 48px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 60px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-item i {
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-item span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(0.7rem, 3.5vw, 0.85rem);
+}
+
+.feature-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Bottom Section */
+.bottom-section {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.creator-badge {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: clamp(0.8rem, 4vw, 1rem) clamp(1rem, 5vw, 2rem);
+  border-radius: 60px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.75rem, 3.5vw, 0.85rem);
+}
+
+.creator-badge i {
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 6px;
+}
+
+.creator-badge strong {
+  color: #ffffff;
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   LOGIN/SIGNUP - Crystal Form
+   ======================================== */
+div > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+form input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+form input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+form button {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.9rem;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+form button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+form button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================
+   DASHBOARD - Crystal Layout
+   ======================================== */
+.dashboard-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-wrapper h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  margin: 0.5rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 1.5rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Form Card - Transparent */
+.form-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border-radius: clamp(20px, 5vw, 28px);
+  padding: clamp(1rem, 4vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card::-webkit-scrollbar {
+  width: 4px;
+}
+
+.form-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.form-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.form-card::before {
+  content: "✨ Create New Task";
+  display: block;
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  padding-left: 1rem;
+  flex-shrink: 0;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: clamp(0.7rem, 3vw, 0.8rem) clamp(0.8rem, 3vw, 1rem);
+  margin-bottom: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(12px, 4vw, 16px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 3.5vw, 0.85rem);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-card select option {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+.form-card button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: clamp(0.7rem, 3vw, 0.8rem);
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 3.5vw, 0.9rem);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-card button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Tasks Card - Transparent */
+.tasks-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border-radius: clamp(20px, 5vw, 28px);
+  padding: clamp(1rem, 4vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tasks-card::before {
+  content: "📋 Your Tasks";
+  display: block;
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  padding-left: 1rem;
+  flex-shrink: 0;
+}
+
+/* Task List Container */
+.tasklist-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+  min-height: 0;
+}
+
+.tasklist-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tasklist-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.tasklist-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* Task Items - Crystal */
+.task-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px);
+  border-radius: clamp(16px, 4vw, 20px) !important;
+  padding: clamp(0.8rem, 3vw, 1rem) !important;
+  margin-bottom: 0.8rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-left: 3px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-left-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  gap: 0.5rem;
+}
+
+.task-title {
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  font-weight: 600;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-title i {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Priority Badges - Crystal */
+.priority-badge {
+  font-size: clamp(0.65rem, 3vw, 0.7rem);
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.priority-high {
+  background: rgba(255, 100, 100, 0.15);
+  color: #ffaaaa !important;
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.priority-medium {
+  background: rgba(255, 200, 100, 0.15);
+  color: #ffd966 !important;
+  border: 1px solid rgba(255, 200, 100, 0.3);
+}
+
+.priority-low {
+  background: rgba(100, 255, 100, 0.15);
+  color: #aaffaa !important;
+  border: 1px solid rgba(100, 255, 100, 0.3);
+}
+
+.task-desc {
+  font-size: clamp(0.75rem, 3.5vw, 0.8rem);
+  color: rgba(255, 255, 255, 0.6) !important;
+  margin: 8px 0;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.task-desc i {
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+}
+
+.task-meta {
+  display: flex;
+  gap: clamp(0.5rem, 3vw, 0.8rem);
+  flex-wrap: wrap;
+  margin: 8px 0;
+  padding: 6px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.task-meta span {
+  font-size: clamp(0.65rem, 3vw, 0.7rem);
+  color: rgba(255, 255, 255, 0.5) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task-meta i {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.meta-category,
+.meta-date,
+.meta-location,
+.meta-tags {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: rgba(255, 100, 100, 0.1);
+  border: 1px solid rgba(255, 100, 100, 0.2);
+  padding: clamp(0.4rem, 2.5vw, 0.45rem) clamp(0.8rem, 3vw, 1rem);
+  border-radius: 40px;
+  color: #ffaaaa !important;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.7rem, 3vw, 0.75rem);
+}
+
+.delete-btn:hover {
+  background: rgba(255, 100, 100, 0.2);
+  border-color: #ffaaaa;
+  transform: scale(0.98);
+}
+
+/* Empty State */
+.empty-tasks {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.empty-tasks i {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+@media (max-width: 900px) {
+  .dashboard-wrapper {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    overflow: visible;
+  }
+
+  .form-card,
+  .tasks-card {
+    height: auto;
+    max-height: none;
+  }
+
+  .tasklist-container {
+    max-height: 400px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0.8rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-wrapper {
+    padding: 0 0.8rem;
+  }
+
+  .tasks-card,
+  .form-card {
+    padding: 1rem;
+  }
+
+  .tasklist-container {
+    max-height: 350px;
+  }
+
+  .step-card {
+    padding: 1rem;
+  }
+
+  .creator-badge {
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Smooth Transitions */
+* {
+  transition: all 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
