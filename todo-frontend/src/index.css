@@ -958,3 +958,193 @@ form button:hover {
   transition: all 0.3s ease;
   -webkit-font-smoothing: antialiased;
 }
+/* ========================================
+   NAVBAR - Desktop First
+   ======================================== */
+nav {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.8rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.nav-brand .logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  font-size: clamp(0.8rem, 4vw, 0.95rem);
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  position: relative;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5), #fff);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::before {
+  width: 70%;
+}
+
+nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+nav button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1.6rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+  backdrop-filter: blur(10px);
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Start Task Button - Hidden on desktop */
+.start-task-btn {
+  display: none !important;
+}
+
+/* ========================================
+   MOBILE NAVBAR - Only on small screens
+   ======================================== */
+@media (max-width: 768px) {
+  nav {
+    margin: 0.8rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  /* Show Start Task button on mobile */
+  .start-task-btn {
+    display: block !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .start-task-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 0;
+    border-radius: 20px;
+    margin-top: 0.8rem;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  /* Show when open */
+  .nav-links.nav-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    padding: 1rem;
+    gap: 0.8rem;
+    max-height: 500px;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+/* Desktop - ensure nav-links are always visible */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    position: static;
+    background: transparent;
+    backdrop-filter: none;
+    flex-direction: row;
+    padding: 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    border: none;
+    max-height: none !important;
+  }
+}
