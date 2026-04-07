@@ -1,5 +1,5 @@
 const express = require("express");   
-const cors = require("cors");       
+     
 const dotenv = require("dotenv");
 
 const connectDB = require("./config/db.js");
@@ -18,7 +18,6 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-const cors = require("cors");
 
 const cors = require("cors");
 
