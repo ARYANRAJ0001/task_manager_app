@@ -1,5 +1,5 @@
 const express = require("express");   
-const cors = require("cors");         
+const cors = require("cors");       
 const dotenv = require("dotenv");
 
 const connectDB = require("./config/db.js");
@@ -18,12 +18,18 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+const cors = require("cors");
+
+const cors = require("cors");
+
 app.use(cors({
-  origin: "https://task-manager-ap-6wb3.onrender.com", // your frontend URL
+  origin: [
+    "http://localhost:5173",
+    "https://task-manager-ap-6wb3.onrender.com"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-
-
 // Routes
 app.use("/api/auth", authroutes);
 app.use("/api/task", taskroutes);
