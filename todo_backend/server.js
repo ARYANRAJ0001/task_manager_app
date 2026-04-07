@@ -1,5 +1,5 @@
 const express = require("express");   
-     
+const cors = require("cors");       
 const dotenv = require("dotenv");
 
 const connectDB = require("./config/db.js");
@@ -18,17 +18,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-
-const cors = require("cors");
-
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://task-manager-ap-6wb3.onrender.com"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "http://localhost:5173",
   credentials: true
 }));
+
+
 // Routes
 app.use("/api/auth", authroutes);
 app.use("/api/task", taskroutes);
