@@ -8,39 +8,76 @@ function Login() {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // 🔥 VERY IMPORTANT
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
       const res = await loginUser(form);
+
+      // ⚡ store auth data
       localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      // ⚡ small delay prevents route race issue (important on Render)
+      setTimeout(() => {
+        navigate("/dashboard", { replace: true });
+      }, 100);
+      
     } catch (error) {
       console.error(error);
-      alert("Login failed");
+      setError(
+        error?.response?.data?.message || "Login failed. Try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="login-wrapper">
+      <div className="login-box">
+        <h2>Welcome Back</h2>
+        <p>Login to continue</p>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Email"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={(e) =>
+              setForm({ ...form, email: e.target.value })
+            }
+            required
+          />
 
-        <input
-          placeholder="Password"
-          type="password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={(e) =>
+              setForm({ ...form, password: e.target.value })
+            }
+            required
+          />
 
-        <button type="submit">Login</button>
-      </form>
+          {error && (
+            <p style={{ color: "red", marginTop: "10px" }}>
+              {error}
+            </p>
+          )}
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
