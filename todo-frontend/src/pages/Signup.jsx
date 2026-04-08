@@ -9,44 +9,84 @@ function Signup() {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // 🔥 MUST
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
       await signupUser(form);
+
+      // success message
       alert("Signup successful!");
-      navigate("/login");
+
+      // small delay (same pattern as login → avoids Render race issues)
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 100);
+
     } catch (error) {
       console.error(error);
-      alert("Signup failed");
+      setError(
+        error?.response?.data?.message || "Signup failed. Try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="signup-wrapper">
+      <div className="signup-box">
+        <h2>Create Account</h2>
+        <p>Sign up to get started</p>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Name"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Name"
+            value={form.name}
+            onChange={(e) =>
+              setForm({ ...form, name: e.target.value })
+            }
+            required
+          />
 
-        <input
-          placeholder="Email"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
+          <input
+            placeholder="Email"
+            type="email"
+            value={form.email}
+            onChange={(e) =>
+              setForm({ ...form, email: e.target.value })
+            }
+            required
+          />
 
-        <input
-          placeholder="Password"
-          type="password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
+          <input
+            placeholder="Password"
+            type="password"
+            value={form.password}
+            onChange={(e) =>
+              setForm({ ...form, password: e.target.value })
+            }
+            required
+          />
 
-        <button type="submit">Signup</button>
-      </form>
+          {error && (
+            <p style={{ color: "red", marginTop: "10px" }}>
+              {error}
+            </p>
+          )}
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating Account..." : "Signup"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
